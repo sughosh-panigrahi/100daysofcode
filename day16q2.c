@@ -8,9 +8,10 @@ int reversednum=0;
 int original;
 printf("the number is :%d",num);
 scanf("%d",&num);
-original=num;
+original=num; 
 while(num!=0){
-remainder =reversednum*10+remainder;
+  remainder= num%10;
+reversednum=reversednum*10+remainder;
 num/=10;
 }
 if (original==reversednum){
