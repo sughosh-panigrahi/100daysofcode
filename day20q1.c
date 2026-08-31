@@ -1,11 +1,28 @@
 #include <stdio.h>
-int main(){
-int num;
-printf("Enter a number :%d",num);
-scanf("%d",&num);
-if(num %2 !=0 ){
-num%2!=0;
-printf("the entered number is an odd number :");
+
+int productOddDigits(int n)
+{
+    if (n == 0)
+        return 1;
+
+    int digit = n % 10;
+
+    if (digit % 2 != 0)
+        return digit * productOddDigits(n / 10);
+    else
+        return productOddDigits(n / 10);
 }
-return 0;
+
+int main()
+{
+    int n, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    result = productOddDigits(n);
+
+    printf("Product of odd digits = %d", result);
+
+    return 0;
 }
